@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             flowLayoutPanelBottom = new FlowLayoutPanel();
             btnSaveChanges = new Button();
             bnCancel = new Button();
             panelFill = new Panel();
             textBoxTypeName = new TextBox();
             labelTypeName = new Label();
+            errorProvider = new ErrorProvider(components);
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelBottom
@@ -51,6 +54,7 @@
             // btnSaveChanges
             // 
             btnSaveChanges.AutoSize = true;
+            btnSaveChanges.DialogResult = DialogResult.OK;
             btnSaveChanges.Location = new Point(3, 3);
             btnSaveChanges.Name = "btnSaveChanges";
             btnSaveChanges.Size = new Size(115, 35);
@@ -61,12 +65,14 @@
             // bnCancel
             // 
             bnCancel.AutoSize = true;
+            bnCancel.DialogResult = DialogResult.Cancel;
             bnCancel.Location = new Point(124, 3);
             bnCancel.Name = "bnCancel";
             bnCancel.Size = new Size(107, 35);
             bnCancel.TabIndex = 1;
             bnCancel.Text = "Отменить";
             bnCancel.UseVisualStyleBackColor = true;
+            bnCancel.Click += bnCancel_Click;
             // 
             // panelFill
             // 
@@ -97,6 +103,10 @@
             labelTypeName.TabIndex = 0;
             labelTypeName.Text = "Тип аниме";
             // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
+            // 
             // FormAddType
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
@@ -108,10 +118,12 @@
             Margin = new Padding(5);
             Name = "FormAddType";
             Text = "Информация о типе аниме";
+            Load += FormAddType_Load;
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -122,7 +134,8 @@
         private Panel panelFill;
         private Button btnSaveChanges;
         private Button bnCancel;
-        private TextBox textBoxTypeName;
         private Label labelTypeName;
+        private ErrorProvider errorProvider;
+        protected internal TextBox textBoxTypeName;
     }
 }
