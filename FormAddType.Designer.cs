@@ -43,35 +43,39 @@
             // 
             // flowLayoutPanelBottom
             // 
+            flowLayoutPanelBottom.AutoSize = true;
             flowLayoutPanelBottom.Controls.Add(btnSaveChanges);
             flowLayoutPanelBottom.Controls.Add(bnCancel);
             flowLayoutPanelBottom.Dock = DockStyle.Bottom;
             flowLayoutPanelBottom.Location = new Point(0, 80);
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
-            flowLayoutPanelBottom.Size = new Size(450, 100);
+            flowLayoutPanelBottom.Padding = new Padding(15);
+            flowLayoutPanelBottom.Size = new Size(384, 71);
             flowLayoutPanelBottom.TabIndex = 1;
             // 
             // btnSaveChanges
             // 
             btnSaveChanges.AutoSize = true;
             btnSaveChanges.DialogResult = DialogResult.OK;
-            btnSaveChanges.Location = new Point(3, 3);
+            btnSaveChanges.Location = new Point(18, 18);
             btnSaveChanges.Name = "btnSaveChanges";
-            btnSaveChanges.Size = new Size(115, 35);
+            btnSaveChanges.Size = new Size(175, 35);
             btnSaveChanges.TabIndex = 0;
             btnSaveChanges.Text = "Сохранить";
             btnSaveChanges.UseVisualStyleBackColor = true;
+            btnSaveChanges.Click += btnSaveChanges_Click;
             // 
             // bnCancel
             // 
             bnCancel.AutoSize = true;
             bnCancel.DialogResult = DialogResult.Cancel;
-            bnCancel.Location = new Point(124, 3);
+            bnCancel.Location = new Point(199, 18);
             bnCancel.Name = "bnCancel";
-            bnCancel.Size = new Size(107, 35);
+            bnCancel.Size = new Size(148, 35);
             bnCancel.TabIndex = 1;
             bnCancel.Text = "Отменить";
             bnCancel.UseVisualStyleBackColor = true;
+            bnCancel.Click += bnCancel_Click;
             // 
             // panelFill
             // 
@@ -80,16 +84,16 @@
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
-            panelFill.Padding = new Padding(10);
-            panelFill.Size = new Size(450, 80);
+            panelFill.Padding = new Padding(15);
+            panelFill.Size = new Size(384, 80);
             panelFill.TabIndex = 0;
             // 
             // textBoxTypeName
             // 
             textBoxTypeName.Dock = DockStyle.Top;
-            textBoxTypeName.Location = new Point(10, 35);
+            textBoxTypeName.Location = new Point(15, 40);
             textBoxTypeName.Name = "textBoxTypeName";
-            textBoxTypeName.Size = new Size(430, 33);
+            textBoxTypeName.Size = new Size(354, 33);
             textBoxTypeName.TabIndex = 1;
             textBoxTypeName.TextChanged += TextBoxTypeName_TextChanged;
             textBoxTypeName.Validating += TextBoxTypeName_Validating;
@@ -98,7 +102,7 @@
             // 
             labelTypeName.AutoSize = true;
             labelTypeName.Dock = DockStyle.Top;
-            labelTypeName.Location = new Point(10, 10);
+            labelTypeName.Location = new Point(15, 15);
             labelTypeName.Name = "labelTypeName";
             labelTypeName.Size = new Size(104, 25);
             labelTypeName.TabIndex = 0;
@@ -112,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(450, 180);
+            ClientSize = new Size(384, 151);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
@@ -125,6 +129,7 @@
             panelFill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

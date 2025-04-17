@@ -1,13 +1,6 @@
-﻿using AppTitlesAnime.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppContext = AppTitlesAnime.Models.AppContext;
 using Type = AppTitlesAnime.Models.Type;
@@ -23,27 +16,13 @@ namespace AppTitlesAnime
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             this.db = new AppContext();
             this.db.AnimeTitles.Load();
-            this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
+            this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
 
             //скрытие столбцов
             dataGridViewTypes.Columns["Id"].Visible = false;
@@ -80,7 +59,69 @@ namespace AppTitlesAnime
 
             MessageBox.Show("Новый обьект добавлен");
 
-            this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
+            this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
+        }
+
+        //private FormTypeAdd GetFormTypeAdd()
+        //{
+        //    return formTypeAdd;
+        //}
+
+        private void BtnUpdateType_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTypes.SelectedRows.Count == 0)
+                return;
+
+            int index = dataGridViewTypes.SelectedRows[0].Index;
+            short id = 0;
+            bool converted = Int16.TryParse(dataGridViewTypes[0, index].Value.ToString(), out id);
+            if (!converted)
+                return;
+
+            Type type = db.Types.Find(id);
+
+            FormAddType formTypeAdd = new();
+            formTypeAdd.textBoxTypeName.Text = type.TypeName;
+
+            DialogResult result = formTypeAdd.ShowDialog(this);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            type.TypeName = formTypeAdd.textBoxTypeName.Text;
+
+            db.SaveChanges();
+            MessageBox.Show("Обьект обновлен");
+            this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
+        }
+
+        private void BtnDeleteType_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTypes.SelectedRows.Count == 0)
+                return;
+
+            DialogResult result = MessageBox.Show(
+                "Вы уверены что хотите удалить обьект?",
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+                return;
+
+            int index = dataGridViewTypes.SelectedRows[0].Index;
+            short id = 0;
+            bool converted = Int16.TryParse(dataGridViewTypes[0, index].Value.ToString(), out id);
+            if (!converted)
+                return;
+
+            Type type = db.Types.Find(id);
+
+            db.Types.Remove(type);
+            db.SaveChanges();
+
+            MessageBox.Show("Обьект удален");
+            this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
         }
     }
 }

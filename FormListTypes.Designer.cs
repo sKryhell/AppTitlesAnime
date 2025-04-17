@@ -75,6 +75,7 @@
             btnUpdateType.TabIndex = 1;
             btnUpdateType.Text = "Редактировать";
             btnUpdateType.UseVisualStyleBackColor = true;
+            btnUpdateType.Click += BtnUpdateType_Click;
             // 
             // btnDeleteType
             // 
@@ -85,6 +86,7 @@
             btnDeleteType.TabIndex = 2;
             btnDeleteType.Text = "Удалить";
             btnDeleteType.UseVisualStyleBackColor = true;
+            btnDeleteType.Click += BtnDeleteType_Click;
             // 
             // panelFill
             // 
@@ -109,7 +111,6 @@
             dataGridViewTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTypes.Size = new Size(914, 530);
             dataGridViewTypes.TabIndex = 2;
-            dataGridViewTypes.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // errorProvider1
             // 
@@ -126,6 +127,7 @@
             Margin = new Padding(5);
             Name = "FormListTypes";
             Text = "Список типов аниме";
+            WindowState = FormWindowState.Maximized;
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
             panelFill.ResumeLayout(false);

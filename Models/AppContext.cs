@@ -18,6 +18,7 @@ public partial class AppContext : DbContext
     public virtual DbSet<TitlesStatus> TitlesStatuses { get; set; }
 
     public virtual DbSet<Type> Types { get; set; }
+    public object AnimeTypes { get; internal set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=db_anime_titles;Username=postgres;Password=1111");
