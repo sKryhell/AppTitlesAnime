@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AppTitlesAnime.Models;
+﻿namespace AppTitlesAnime.Models;
 
 public partial class Type
 {

@@ -97,6 +97,7 @@ namespace AppTitlesAnime
 
         private void BtnDeleteType_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Delete");
             if (dataGridViewTypes.SelectedRows.Count == 0)
                 return;
 
@@ -122,6 +123,11 @@ namespace AppTitlesAnime
 
             MessageBox.Show("Обьект удален");
             this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
+        }
+
+        private void FormListTypes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

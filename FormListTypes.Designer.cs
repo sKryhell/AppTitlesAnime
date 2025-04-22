@@ -128,6 +128,7 @@
             Name = "FormListTypes";
             Text = "Список типов аниме";
             WindowState = FormWindowState.Maximized;
+            Load += FormListTypes_Load;
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
             panelFill.ResumeLayout(false);
