@@ -7,21 +7,21 @@ namespace AppTitlesAnime
             InitializeComponent();
         }
 
-        private void btnShowTypes_Click(object sender, EventArgs e)
+        private void BtnShowTypes_Click(object sender, EventArgs e)
         {
             FormListTypes formListTypes = new FormListTypes();
             formListTypes.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnShowGenres_Click(object sender, EventArgs e)
         {
-            FormGenres formGenres = new FormGenres();
-            formGenres.Show();
+            FormListGenres formListGenre = new FormListGenres();
+            formListGenre.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonShowStatus_Click(object sender, EventArgs e)
         {
-
+            FormListStatus formListStatus = new FormListStatus();
+            formListStatus.Show();
         }
     }
 }

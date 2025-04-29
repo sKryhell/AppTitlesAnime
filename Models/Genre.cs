@@ -7,7 +7,7 @@ public partial class Genre
 {
     public short Id { get; set; }
 
-    public string GenseName { get; set; } = null!;
+    public string GenreName { get; set; } = null!;
 
     //навигационные свойства
 

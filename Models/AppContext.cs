@@ -53,7 +53,7 @@ public partial class AppContext : DbContext
             entity.ToTable("genres");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.GenseName).HasColumnName("gense_name");
+            entity.Property(e => e.GenreName).HasColumnName("gense_name");
         });
 
         modelBuilder.Entity<Status>(entity =>

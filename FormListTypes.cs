@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Data;
-using System.Windows.Forms;
 using AppContext = AppTitlesAnime.Models.AppContext;
 using Type = AppTitlesAnime.Models.Type;
 
@@ -62,10 +61,6 @@ namespace AppTitlesAnime
             this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
         }
 
-        //private FormTypeAdd GetFormTypeAdd()
-        //{
-        //    return formTypeAdd;
-        //}
 
         private void BtnUpdateType_Click(object sender, EventArgs e)
         {
@@ -97,7 +92,6 @@ namespace AppTitlesAnime
 
         private void BtnDeleteType_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Delete");
             if (dataGridViewTypes.SelectedRows.Count == 0)
                 return;
 
@@ -123,11 +117,6 @@ namespace AppTitlesAnime
 
             MessageBox.Show("Обьект удален");
             this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
-        }
-
-        private void FormListTypes_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

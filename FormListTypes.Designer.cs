@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             flowLayoutPanelTop = new FlowLayoutPanel();
-            btnAddType = new Button();
             btnUpdateType = new Button();
             btnDeleteType = new Button();
-            panelFill = new Panel();
             dataGridViewTypes = new DataGridView();
-            errorProvider1 = new ErrorProvider(components);
+            panelFill = new Panel();
+            btnAddType = new Button();
             flowLayoutPanelTop.SuspendLayout();
-            panelFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            panelFill.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanelTop
@@ -54,17 +51,6 @@
             flowLayoutPanelTop.Padding = new Padding(10);
             flowLayoutPanelTop.Size = new Size(934, 61);
             flowLayoutPanelTop.TabIndex = 0;
-            // 
-            // btnAddType
-            // 
-            btnAddType.AutoSize = true;
-            btnAddType.Location = new Point(13, 13);
-            btnAddType.Name = "btnAddType";
-            btnAddType.Size = new Size(106, 35);
-            btnAddType.TabIndex = 0;
-            btnAddType.Text = "Добавить";
-            btnAddType.UseVisualStyleBackColor = true;
-            btnAddType.Click += BtnAddType_Click;
             // 
             // btnUpdateType
             // 
@@ -88,6 +74,19 @@
             btnDeleteType.UseVisualStyleBackColor = true;
             btnDeleteType.Click += BtnDeleteType_Click;
             // 
+            // dataGridViewTypes
+            // 
+            dataGridViewTypes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewTypes.BackgroundColor = Color.White;
+            dataGridViewTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTypes.Dock = DockStyle.Fill;
+            dataGridViewTypes.Location = new Point(10, 10);
+            dataGridViewTypes.MultiSelect = false;
+            dataGridViewTypes.Name = "dataGridViewTypes";
+            dataGridViewTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTypes.Size = new Size(914, 530);
+            dataGridViewTypes.TabIndex = 2;
+            // 
             // panelFill
             // 
             panelFill.Controls.Add(dataGridViewTypes);
@@ -98,23 +97,16 @@
             panelFill.Size = new Size(934, 550);
             panelFill.TabIndex = 1;
             // 
-            // dataGridViewTypes
+            // btnAddType
             // 
-            dataGridViewTypes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewTypes.BackgroundColor = Color.White;
-            dataGridViewTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTypes.Dock = DockStyle.Fill;
-            dataGridViewTypes.Location = new Point(10, 10);
-            dataGridViewTypes.MultiSelect = false;
-            dataGridViewTypes.Name = "dataGridViewTypes";
-            dataGridViewTypes.ReadOnly = true;
-            dataGridViewTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewTypes.Size = new Size(914, 530);
-            dataGridViewTypes.TabIndex = 2;
-            // 
-            // errorProvider1
-            // 
-            errorProvider1.ContainerControl = this;
+            btnAddType.AutoSize = true;
+            btnAddType.Location = new Point(13, 13);
+            btnAddType.Name = "btnAddType";
+            btnAddType.Size = new Size(106, 35);
+            btnAddType.TabIndex = 0;
+            btnAddType.Text = "Добавить";
+            btnAddType.UseVisualStyleBackColor = true;
+            btnAddType.Click += BtnAddType_Click;
             // 
             // FormListTypes
             // 
@@ -128,12 +120,10 @@
             Name = "FormListTypes";
             Text = "Список типов аниме";
             WindowState = FormWindowState.Maximized;
-            Load += FormListTypes_Load;
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
-            panelFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).EndInit();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            panelFill.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,11 +131,10 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanelTop;
-        private Button btnAddType;
         private Button btnUpdateType;
         private Button btnDeleteType;
-        private Panel panelFill;
         private DataGridView dataGridViewTypes;
-        private ErrorProvider errorProvider1;
+        private Panel panelFill;
+        private Button btnAddType;
     }
 }
