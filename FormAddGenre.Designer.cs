@@ -126,6 +126,7 @@
             Margin = new Padding(5);
             Name = "FormAddGenre";
             Text = "Информация о жанре аниме";
+            Load += FormAddGenre_Load;
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
             flowLayoutPanelBottom.ResumeLayout(false);

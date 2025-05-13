@@ -118,5 +118,10 @@ namespace AppTitlesAnime
             MessageBox.Show("Обьект удален");
             this.dataGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeName).ToList();
         }
+
+        private void FormListTypes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

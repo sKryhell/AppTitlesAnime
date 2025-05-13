@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             flowLayoutPanelTop = new FlowLayoutPanel();
+            btnAddType = new Button();
             btnUpdateType = new Button();
             btnDeleteType = new Button();
             dataGridViewTypes = new DataGridView();
             panelFill = new Panel();
-            btnAddType = new Button();
             flowLayoutPanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).BeginInit();
             panelFill.SuspendLayout();
@@ -51,6 +51,17 @@
             flowLayoutPanelTop.Padding = new Padding(10);
             flowLayoutPanelTop.Size = new Size(934, 61);
             flowLayoutPanelTop.TabIndex = 0;
+            // 
+            // btnAddType
+            // 
+            btnAddType.AutoSize = true;
+            btnAddType.Location = new Point(13, 13);
+            btnAddType.Name = "btnAddType";
+            btnAddType.Size = new Size(106, 35);
+            btnAddType.TabIndex = 0;
+            btnAddType.Text = "Добавить";
+            btnAddType.UseVisualStyleBackColor = true;
+            btnAddType.Click += BtnAddType_Click;
             // 
             // btnUpdateType
             // 
@@ -97,17 +108,6 @@
             panelFill.Size = new Size(934, 550);
             panelFill.TabIndex = 1;
             // 
-            // btnAddType
-            // 
-            btnAddType.AutoSize = true;
-            btnAddType.Location = new Point(13, 13);
-            btnAddType.Name = "btnAddType";
-            btnAddType.Size = new Size(106, 35);
-            btnAddType.TabIndex = 0;
-            btnAddType.Text = "Добавить";
-            btnAddType.UseVisualStyleBackColor = true;
-            btnAddType.Click += BtnAddType_Click;
-            // 
             // FormListTypes
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
@@ -120,6 +120,7 @@
             Name = "FormListTypes";
             Text = "Список типов аниме";
             WindowState = FormWindowState.Maximized;
+            Load += FormListTypes_Load;
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).EndInit();

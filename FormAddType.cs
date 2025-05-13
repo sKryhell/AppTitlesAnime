@@ -46,5 +46,12 @@ namespace AppTitlesAnime
         {
 
         }
+
+        private void FormAddType_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

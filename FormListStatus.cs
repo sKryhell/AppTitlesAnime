@@ -6,11 +6,12 @@ using Status = AppTitlesAnime.Models.Status;
 
 namespace AppTitlesAnime
 {
-    public partial class FormListStatuss : Form
+    public partial class FormListStatus : Form
     {
         private AppContext db;
+        private object dataGridViewStatus;
 
-        public FormListStatuss()
+        public FormListStatus()
         {
             InitializeComponent();
         }
@@ -21,14 +22,14 @@ namespace AppTitlesAnime
             base.OnLoad(e);
             this.db = new AppContext();
             this.db.AnimeTitles.Load();
-            this.dataGridViewStatus.DataSource = this.db.Status.OrderBy(o => o.StatusName).ToList();
+            this.dataGridViewStatuses.DataSource = this.db.Statuses.OrderBy(o => o.StatusName).ToList();
 
-            //скрытие столбцов
-            //dataGridViewStatuss.Columns["Id"].Visible = false;
-            //dataGridViewStatuss.Columns["Ganre"].Visible = false;
+            ////скрытие столбцов
+            //dataGridViewStatus.Columns["Id"].Visible = false;
+            //dataGridViewStatus.Columns["AnimeTitles"].Visible = false;
 
             ////изменение названий заголовков столбцов
-            //dataGridViewStatuss.Columns["StatusName"].HeaderText = "Жанры аниме";
+            //dataGridViewStatus.Columns["StatusName"].HeaderText = "Типы аниме";
 
         }
 
@@ -53,27 +54,27 @@ namespace AppTitlesAnime
                 StatusName = formAddStatus.textBoxStatusName.Text
             };
 
-            db.Status.Add(status);
+            db.Statuses.Add(status);
             db.SaveChanges();
 
             MessageBox.Show("Новый обьект добавлен");
 
-            this.dataGridViewStatus.DataSource = this.db.Status.OrderBy(o => o.StatusName).ToList();
+            this.dataGridViewStatuses.DataSource = this.db.Statuses.OrderBy(o => o.StatusName).ToList();
         }
 
 
         private void BtnUpdateStatus_Click(object sender, EventArgs e)
         {
-            if (dataGridViewStatus.SelectedRows.Count == 0)
+            if (dataGridViewStatuses.SelectedRows.Count == 0)
                 return;
 
-            int index = dataGridViewStatus.SelectedRows[0].Index;
+            int index = dataGridViewStatuses.SelectedRows[0].Index;
             short id = 0;
-            bool converted = Int16.TryParse(dataGridViewStatus[0, index].Value.ToString(), out id);
+            bool converted = Int16.TryParse(dataGridViewStatuses[0, index].Value.ToString(), out id);
             if (!converted)
                 return;
 
-            Status status = db.Status.Find(id);
+            Status status = db.Statuses.Find(id);
 
             FormAddStatus formStatusAdd = new();
             formStatusAdd.textBoxStatusName.Text = status.StatusName;
@@ -87,12 +88,12 @@ namespace AppTitlesAnime
 
             db.SaveChanges();
             MessageBox.Show("Обьект обновлен");
-            this.dataGridViewStatus.DataSource = this.db.Status.OrderBy(o => o.StatusName).ToList();
+            this.dataGridViewStatuses.DataSource = this.db.Statuses.OrderBy(o => o.StatusName).ToList();
         }
 
         private void BtnDeleteStatus_Click(object sender, EventArgs e)
         {
-            if (dataGridViewStatus.SelectedRows.Count == 0)
+            if (dataGridViewStatuses.SelectedRows.Count == 0)
                 return;
 
             DialogResult result = MessageBox.Show(
@@ -104,19 +105,24 @@ namespace AppTitlesAnime
             if (result == DialogResult.No)
                 return;
 
-            int index = dataGridViewStatus.SelectedRows[0].Index;
+            int index = dataGridViewStatuses.SelectedRows[0].Index;
             short id = 0;
-            bool converted = Int16.TryParse(dataGridViewStatus[0, index].Value.ToString(), out id);
+            bool converted = Int16.TryParse(dataGridViewStatuses[0, index].Value.ToString(), out id);
             if (!converted)
                 return;
 
-            Status status = db.Status.Find(id);
+            Status status = db.Statuses.Find(id);
 
-            db.Status.Remove(status);
+            db.Statuses.Remove(status);
             db.SaveChanges();
 
             MessageBox.Show("Обьект удален");
-            this.dataGridViewStatus.DataSource = this.db.Status.OrderBy(o => o.StatusName).ToList();
+            this.dataGridViewStatuses.DataSource = this.db.Statuses.OrderBy(o => o.StatusName).ToList();
+        }
+
+        private void FormListTypes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

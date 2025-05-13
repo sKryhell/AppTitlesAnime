@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AppTitlesAnime
+﻿namespace AppTitlesAnime
 {
-    public partial class FormAddGenre: Form
+    public partial class FormAddGenre : Form
     {
         public FormAddGenre()
         {
             InitializeComponent();
+        }
+
+        private void FormAddGenre_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,7 +49,7 @@
             flowLayoutPanelTop.Location = new Point(0, 0);
             flowLayoutPanelTop.Name = "flowLayoutPanelTop";
             flowLayoutPanelTop.Padding = new Padding(10);
-            flowLayoutPanelTop.Size = new Size(800, 61);
+            flowLayoutPanelTop.Size = new Size(934, 61);
             flowLayoutPanelTop.TabIndex = 2;
             // 
             // btnAddGenre
@@ -98,7 +98,7 @@
             dataGridViewGenres.Name = "dataGridViewGenres";
             dataGridViewGenres.ReadOnly = true;
             dataGridViewGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGenres.Size = new Size(780, 369);
+            dataGridViewGenres.Size = new Size(914, 530);
             dataGridViewGenres.TabIndex = 2;
             // 
             // panelFill
@@ -108,14 +108,14 @@
             panelFill.Location = new Point(0, 61);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10);
-            panelFill.Size = new Size(800, 389);
+            panelFill.Size = new Size(934, 550);
             panelFill.TabIndex = 3;
             // 
             // FormListGenres
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(934, 611);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanelTop);
             Name = "FormListGenres";

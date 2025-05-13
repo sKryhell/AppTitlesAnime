@@ -51,16 +51,15 @@
             panelFill.Margin = new Padding(5);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(13);
-            panelFill.Size = new Size(432, 129);
+            panelFill.Size = new Size(384, 76);
             panelFill.TabIndex = 4;
             // 
             // textBoxStatusName
             // 
             textBoxStatusName.Dock = DockStyle.Top;
             textBoxStatusName.Location = new Point(13, 28);
-            textBoxStatusName.Margin = new Padding(5);
             textBoxStatusName.Name = "textBoxStatusName";
-            textBoxStatusName.Size = new Size(406, 23);
+            textBoxStatusName.Size = new Size(358, 23);
             textBoxStatusName.TabIndex = 1;
             // 
             // labelTypeName
@@ -80,18 +79,19 @@
             flowLayoutPanelBottom.Controls.Add(btnSaveChanges);
             flowLayoutPanelBottom.Controls.Add(btnCancel);
             flowLayoutPanelBottom.Dock = DockStyle.Bottom;
-            flowLayoutPanelBottom.Location = new Point(0, 129);
+            flowLayoutPanelBottom.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            flowLayoutPanelBottom.Location = new Point(0, 76);
             flowLayoutPanelBottom.Margin = new Padding(5);
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
-            flowLayoutPanelBottom.Padding = new Padding(24, 25, 24, 25);
-            flowLayoutPanelBottom.Size = new Size(432, 95);
+            flowLayoutPanelBottom.Padding = new Padding(15);
+            flowLayoutPanelBottom.Size = new Size(384, 75);
             flowLayoutPanelBottom.TabIndex = 5;
             // 
             // btnSaveChanges
             // 
             btnSaveChanges.AutoSize = true;
             btnSaveChanges.DialogResult = DialogResult.OK;
-            btnSaveChanges.Location = new Point(29, 30);
+            btnSaveChanges.Location = new Point(20, 20);
             btnSaveChanges.Margin = new Padding(5);
             btnSaveChanges.Name = "btnSaveChanges";
             btnSaveChanges.Size = new Size(175, 35);
@@ -103,10 +103,10 @@
             // 
             btnCancel.AutoSize = true;
             btnCancel.DialogResult = DialogResult.Cancel;
-            btnCancel.Location = new Point(214, 30);
+            btnCancel.Location = new Point(205, 20);
             btnCancel.Margin = new Padding(5);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(175, 35);
+            btnCancel.Size = new Size(148, 35);
             btnCancel.TabIndex = 1;
             btnCancel.Text = "Отменить";
             btnCancel.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(432, 224);
+            ClientSize = new Size(384, 151);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanelBottom);
             Name = "FormAddStatus";
